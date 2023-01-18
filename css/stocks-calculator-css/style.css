@@ -1,0 +1,127 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f2f2f2;
+    margin: unset;
+}
+
+#header-container {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    padding: 0px 20px;
+    background-color: white;
+    box-shadow: 0px 7px 5px -2px #999999;
+}
+
+#header {
+    color: #0099CC;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    margin: auto;
+}
+
+#info-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#how-to-use {
+    margin: 0 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    line-height: 1.6;
+    display: none;
+}
+
+#steps-to-use {
+    margin-top: 20px;
+}
+
+p {
+    margin: unset;
+}
+
+#calculator-container {
+    display: flex;
+    justify-content: center;
+}
+
+#calculator {
+    width: 40%;
+    margin: 0 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    line-height: 1.6;
+}
+
+.input-container {
+    display: flex;
+    min-height: 35px;
+    margin-bottom: 15px;
+}
+
+.input-container > * {
+    width: 50%;
+}
+
+input {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    letter-spacing: 3px;
+}
+input:active,
+input:focus {
+    outline: none;
+}
+input:disabled {
+    background-color: #f1f1f1;
+}
+
+button {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: white;
+    min-height: 40px;
+    min-width: 120px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    cursor: pointer;
+}
+button:active,
+button:focus {
+  outline: none;
+}
+
+.blue {
+    background-color: #0099CC;
+}
+.blue:hover {
+    background-color: #0086b3;
+}
+
+.button-container {
+    text-align: right;
+}
+
+#calculator > hr {
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color:black;
+}

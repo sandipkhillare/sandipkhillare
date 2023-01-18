@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Stocks Calculator</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" type="image/svg" href="../images/stocks-calculator/risk.svg"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../css/stocks-calculator-css/style.css">
+        </head>
+        <body>
+            <div id="header-container">
+                <div id="header">More Tradable Quantity Calculator</div>
+                <img id="info-icon" src="../images//stocks-calculator/information_blue.svg" onclick="toggleInfo()">
+            </div>
+            <div id="how-to-use">
+                <p>
+                    <strong>Usage:</strong>&nbsp;This calculator can be used for - trading more quantity of shares of a stock if the position is already in profit. You can protect your capital and trade more quantities in the current running profit so that you don't loose money from your pocket for the new shares traded.
+                </p>
+                <p id="steps-to-use">
+                    <strong>Steps to use:</strong>
+                    <ol>
+                        <li>Check the current running profit (e.g. Current running profit is +160 RS)</li>
+                        <li>Decide the stoploss points for the new trade (e.g. SL price is 5 points up or down from the price where you are entering new trade)</li>
+                        <li>Enter the values in the below fields and it will give you how much more quantity you can trade</li>
+                    </ol>
+                </p>
+            </div>
+            <div id="calculator-container">
+                <div id="calculator">
+                    <div class="input-container">
+                        <b>Current Profit :</b>
+                        <input id="input-profit" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="6">
+                    </div>
+                    <div class="input-container">
+                        <b>Stoploss (in points) :</b>
+                        <input id="input-points" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="6">
+                    </div>
+                    <div class="button-container">
+                        <button id="btn-calculate" class="blue" onclick="calculateQuantity()">Calculate</button>
+                    </div>
+                    <hr>
+                    <div class="input-container">
+                        <b>Tradable Quantity :</b>
+                        <input id="input-result" type="text" disabled>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById("input-profit").addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("btn-calculate").click();
+                } else {
+                    document.getElementById("input-result").value = ""
+                }
+                });
+                document.getElementById("input-points").addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("btn-calculate").click();
+                } else {
+                    document.getElementById("input-result").value = ""
+                }
+                });
+                function calculateQuantity () {
+                    const profit = document.getElementById("input-profit").value
+                    const sl = document.getElementById("input-points").value
+                    if (!profit && !sl) {
+                        alert('Please enter current profit and stoploss in points')
+                    } else if (!profit) {
+                        alert('Please enter current profit')
+                    } else if (profit == 0 || profit <= 1) {
+                        alert('Your current profit is low, you should avoid trading more :)')
+                    } else if (!sl) {
+                        alert('Please enter stoploss in points')
+                    } else {
+                        document.getElementById("input-result").value = Math.floor(profit / sl)
+                    }
+                }
+                function toggleInfo() {
+                    var info = document.getElementById("how-to-use");
+                    if (!info.style.display || info.style.display === "none") {
+                        info.style.display = "block";
+                    } else {
+                        info.style.display = "none";
+                    }
+                }
+            </script>
+        </body>    
+    </html>
